@@ -1,5 +1,5 @@
 {
-  "name": "feature_3022411017_vault_app",
+  "name": "feature_3022411005_vault_app",
   "version": "1.0.0",
   "description": "",
   "homepage": "https://github.com/vandanaunipune-del/sepm_project_submission#readme",
@@ -16,6 +16,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "docker run --rm -v \"C:\\Users\\anjali\\sepm_project_submission/contracts:/sources\" -v \"C:\\Users\\anjali\\sepm_project_submission/build:/output\" ethereum/solc:0.8.24 --overwrite --combined-json abi,bin -o /output /sources/HelloWorld.sol"
+    "compile": "npm run prepare-input && docker compose -f docker_compose.yml run --rm solc",
+    "prepare-input": "node scripts/build_input.js"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "5.1.0"
   }
 }
